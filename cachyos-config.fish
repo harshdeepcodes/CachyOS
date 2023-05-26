@@ -6,3 +6,11 @@ alias update="sudo pacman -Syyu"
 alias pacin="sudo pacman -S $1"
 alias pipin="pip install $1"
 alias pip3in="pip3 install $1"
+alias 
+
+# CUSTOM FUNCTIONS
+
+amazon_search() {
+  S=$(printf '%s' "$*" | tr ' ' '+')
+  brave --guest "https://www.amazon.in/s?k="$S""
+}
