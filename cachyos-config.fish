@@ -10,8 +10,8 @@ alias ipa="ip a | awk '{print $2}' | grep 192.168 | sed -n '1p' | cut -d '/' -f 
 
 # CUSTOM FUNCTIONS
 
-amazon_search() {
-  S=$(printf '%s' "$*" | tr ' ' '+')
+function amazon
+  set S $(printf '%s' "$argv" | tr ' ' '+')
   brave --guest "https://www.amazon.in/s?k="$S""
-}
+end
 
