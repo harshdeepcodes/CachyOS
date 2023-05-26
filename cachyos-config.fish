@@ -15,7 +15,7 @@ alias pyhs="python -m http.server"
 
 function amazon
   set S $(printf '%s' "$argv" | tr ' ' '+')
-  brave --guest "https://www.amazon.in/s?k="$S""
+  brave --guest "https://www.amazon.in/s?k=$S"
 end
 
 function bashbp
@@ -23,9 +23,9 @@ function bashbp
   echo "#!/bin/bash" > $S && vim $S
 end
 
-function amazon
+function anonyt
   set S $(printf '%s' "$argv" | tr ' ' '+')
-  brave --guest "https://www.amazon.in/s?k="$S""
+  brave --guest "https://www.youtube.com/results?search_query=$S"
 end
 
 function amazon
