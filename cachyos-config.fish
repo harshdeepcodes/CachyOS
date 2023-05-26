@@ -27,13 +27,3 @@ function anonyt
   set S $(printf '%s' "$argv" | tr ' ' '+')
   brave --guest "https://www.youtube.com/results?search_query=$S"
 end
-
-function amazon
-  set S $(printf '%s' "$argv" | tr ' ' '+')
-  brave --guest "https://www.amazon.in/s?k="$S""
-end
-
-function amazon
-  set S $(printf '%s' "$argv" | tr ' ' '+')
-  brave --guest "https://www.amazon.in/s?k="$S""
-end
