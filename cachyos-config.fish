@@ -11,13 +11,14 @@ alias pip3un="pip3 uninstall $1"
 alias ipa="ip a | awk '{print $2}' | grep 192.168 | sed -n '1p' | cut -d '/' -f 1"
 alias pwdc="pwd | xclip -sel c"
 alias pyhs="python -m http.server"
+alias clsradio="mpv --no-video https://live.musopen.org:8085/streamvbr0"
+alias lofiradio="mpv --no-video https://www.youtube.com/c/LofiGirl"
 
-
-# CUSTOM FUNCTIONS
+## CUSTOM FUNCTIONS
 
 function amazon
   set S $(printf '%s' "$argv" | tr ' ' '+')
-  brave --guest "https://www.amazon.in/s?k=$S"
+  brave --guest "https://www.amazon.in/s?k="$S""
 end
 
 function bpsh
@@ -34,6 +35,7 @@ function anonyt
   set S $(printf '%s' "$argv" | tr ' ' '+')
   brave --guest "https://www.youtube.com/results?search_query=$S"
 end
+
 
 function ytmusic
         set S $(printf '%s' "$argv" | sed -e 's/ /+/g')
@@ -90,7 +92,6 @@ $(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0) $(tput setaf 1)$(tput setab 7) 
 
 end
 
-
 function ytfhd
         set S $(printf '%s' "$argv" | sed -e 's/ /+/g')
         set LINK "https://www.youtube.com$(curl -s "https://vid.puffyan.us/search?q=$S" | grep -s -Eo "/watch\?v=.{11}" | sed -n '1p')"
@@ -110,6 +111,7 @@ $(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0) $(tput setaf 1)$(tput setab 7) 
 
 end
 
+
 function ythd
         set S $(printf '%s' "$argv" | sed -e 's/ /+/g')
         set LINK "https://www.youtube.com$(curl -s "https://vid.puffyan.us/search?q=$S" | grep -s -Eo "/watch\?v=.{11}" | sed -n '1p')"
@@ -128,4 +130,3 @@ $(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0) $(tput setaf 1)$(tput setab 7) 
         mpv --ytdl-format="bestvideo[ext=mp4][height<=?720]+bestaudio" "$LINK"
 
 end
-
