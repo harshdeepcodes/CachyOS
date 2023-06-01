@@ -53,4 +53,79 @@ $(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0) $(tput setaf 1)$(tput setab 7) 
         mpv --no-video "$LINK"
 end
 
+function ytmax
+        set S $(printf '%s' "$argv" | sed -e 's/ /+/g')
+        set LINK "https://www.youtube.com$(curl -s "https://vid.puffyan.us/search?q=$S" | grep -s -Eo "/watch\?v=.{11}" | sed -n '1p')"
+        set TITLE $(wget -qO- "$LINK" | perl -l -0777 -ne 'print $1 if /<title.*?>\s*(.*?)(?: - youtube)?\s*<\/title/si')
+        echo "
+
+---X---X---X---X---X---X---X---X---
+
+$(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0)$(tput setaf 3) "$TITLE" $(tput sgr 0)$(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0)
+
+$(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0) $(tput setaf 1)$(tput setab 7) "$LINK" $(tput sgr 0) $(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0)
+
+---X---X---X---X---X---X---X---X---
+
+"
+        mpv "$LINK"
+end
+
+function ytuhd
+        set S $(printf '%s' "$argv" | sed -e 's/ /+/g')
+        set LINK "https://www.youtube.com$(curl -s "https://vid.puffyan.us/search?q=$S" | grep -s -Eo "/watch\?v=.{11}" | sed -n '1p')"
+        set TITLE $(wget -qO- "$LINK" | perl -l -0777 -ne 'print $1 if /<title.*?>\s*(.*?)(?: - youtube)?\s*<\/title/si')
+        echo "
+
+---X---X---X---X---X---X---X---X---
+
+$(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0)$(tput setaf 3) "$TITLE" $(tput sgr 0)$(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0)
+
+$(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0) $(tput setaf 1)$(tput setab 7) "$LINK" $(tput sgr 0) $(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0)
+
+---X---X---X---X---X---X---X---X---
+
+"
+        mpv --ytdl-format="bestvideo[ext=mp4][height<=?2160]+bestaudio" "$LINK"
+
+end
+
+
+function ytfhd
+        set S $(printf '%s' "$argv" | sed -e 's/ /+/g')
+        set LINK "https://www.youtube.com$(curl -s "https://vid.puffyan.us/search?q=$S" | grep -s -Eo "/watch\?v=.{11}" | sed -n '1p')"
+        set TITLE $(wget -qO- "$LINK" | perl -l -0777 -ne 'print $1 if /<title.*?>\s*(.*?)(?: - youtube)?\s*<\/title/si')
+        echo "
+
+---X---X---X---X---X---X---X---X---
+
+$(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0)$(tput setaf 3) "$TITLE" $(tput sgr 0)$(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0)
+
+$(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0) $(tput setaf 1)$(tput setab 7) "$LINK" $(tput sgr 0) $(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0)
+
+---X---X---X---X---X---X---X---X---
+
+"
+        mpv --ytdl-format="bestvideo[ext=mp4][height<=?1080]+bestaudio" "$LINK"
+
+end
+
+function ythd
+        set S $(printf '%s' "$argv" | sed -e 's/ /+/g')
+        set LINK "https://www.youtube.com$(curl -s "https://vid.puffyan.us/search?q=$S" | grep -s -Eo "/watch\?v=.{11}" | sed -n '1p')"
+        set TITLE $(wget -qO- "$LINK" | perl -l -0777 -ne 'print $1 if /<title.*?>\s*(.*?)(?: - youtube)?\s*<\/title/si')
+        echo "
+
+---X---X---X---X---X---X---X---X---
+
+$(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0)$(tput setaf 3) "$TITLE" $(tput sgr 0)$(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0)
+
+$(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0) $(tput setaf 1)$(tput setab 7) "$LINK" $(tput sgr 0) $(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0)
+
+---X---X---X---X---X---X---X---X---
+
+"
+        mpv --ytdl-format="bestvideo[ext=mp4][height<=?720]+bestaudio" "$LINK"
+
+end
 
