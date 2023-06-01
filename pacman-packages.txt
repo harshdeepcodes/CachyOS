@@ -1,0 +1,7 @@
+yakuake
+brave-bin
+mpv
+vlc
+pamac
+obsidian
+yewtube
