@@ -1,6 +1,7 @@
 # CachyOS Config
 
-This repository contains a collection of custom aliases, functions, and configurations for CachyOS. CachyOS is a lightweight Linux distribution based on Arch Linux.
+This repository contains a collection of custom aliases, functions, and configurations for CachyOS.
+By the way, CachyOS is a lightweight Linux distribution based on Arch Linux.
 
 ## Custom Aliases
 
