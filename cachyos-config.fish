@@ -34,3 +34,23 @@ function anonyt
   set S $(printf '%s' "$argv" | tr ' ' '+')
   brave --guest "https://www.youtube.com/results?search_query=$S"
 end
+
+function ytmusic
+        set S $(printf '%s' "$argv" | sed -e 's/ /+/g')
+        set LINK "https://www.youtube.com$(curl -s "https://vid.puffyan.us/search?q=$S" | grep -s -Eo "/watch\?v=.{11}" | sed -n '1p')"
+        set TITLE $(wget -qO- "$LINK" | perl -l -0777 -ne 'print $1 if /<title.*?>\s*(.*?)(?: - youtube)?\s*<\/title/si')
+        echo "
+
+---X---X---X---X---X---X---X---X---
+
+$(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0)$(tput setaf 3) "$TITLE" $(tput sgr 0)$(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0)
+
+$(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0) $(tput setaf 1)$(tput setab 7) "$LINK" $(tput sgr 0) $(tput setab 1)$(tput setaf 7) ▶ $(tput sgr 0)
+
+---X---X---X---X---X---X---X---X---
+
+"
+        mpv --no-video "$LINK"
+end
+
+
