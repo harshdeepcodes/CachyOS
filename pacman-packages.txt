@@ -5,3 +5,4 @@ vlc
 pamac
 obsidian
 yewtube
+veracrypt
